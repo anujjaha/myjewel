@@ -35,14 +35,14 @@
                             <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-products')) }}">
                                 <a class="nav-link" href="{!! route('frontend.jewel-products') !!}">Products</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{!! route('frontend.index') !!}">Timepiece</a>
+                            <li class="nav-item {{ active_class(Active::checkUriPattern('time-piece')) }}">
+                                <a class="nav-link" href="{!! route('frontend.time-piece') !!}">Timepiece</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{!! route('frontend.index') !!}">Accessories</a>
+                            <li class="nav-item {{ active_class(Active::checkUriPattern('accessories')) }}">
+                                <a class="nav-link" href="{!! route('frontend.accessories') !!}">Accessories</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{!! route('frontend.index') !!}">Gifts</a>
+                            <li class="nav-item {{ active_class(Active::checkUriPattern('gifts')) }}">
+                                <a class="nav-link" href="{!! route('frontend.gifts') !!}">Gifts</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{!! route('frontend.index') !!}"><img src="images/star_icon.png" alt=""></a>

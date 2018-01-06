@@ -10,6 +10,38 @@ Route::get('/jewel-products', 'FrontendController@jewelProducts')->name('jewel-p
 Route::get('/product-details/{id}', 'FrontendController@productDetails')->name('jewel-products-details');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 
+Route::any('time-piece', 'FrontendController@timePiece')->name('time-piece');
+
+Route::any('accessories', 'FrontendController@accessories')->name('accessories');
+
+Route::any('gifts', 'FrontendController@gifts')->name('gifts');
+
+Route::any('client-service', 'FrontendController@clientService')->name('client-service');
+
+Route::any('corporate', 'FrontendController@corporate')->name('corporate');
+
+Route::any('catelogs', 'FrontendController@catelogs')->name('catelogs');
+
+Route::any('legal-terms', 'FrontendController@legalTerms')->name('legal-terms');
+
+Route::any('help', 'FrontendController@helpDesk')->name('help-desk');
+
+Route::any('contact-us', 'FrontendController@contactUs')->name('contact-us');
+
+/*Route::any('gifts', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('client-service', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('corporate', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('catelogs', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('legal-terms', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('help', 'DashboardController@createOrder')->name('create-order');
+
+Route::any('contact-us', 'DashboardController@createOrder')->name('create-order');*/
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

@@ -85,4 +85,10 @@ class DashboardController extends Controller
                     'status'    => false
             ], 200);
     }
+
+    public function timePiece(Request $request)
+    {
+        $user = access()->user();
+        return view('frontend.jewel.page-template')->with('user', $user);
+    }
 }
