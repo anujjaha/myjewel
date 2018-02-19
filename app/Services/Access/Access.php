@@ -3,6 +3,7 @@
 namespace App\Services\Access;
 
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Repositories\Category\EloquentCategoryRepository;
 
 /**
  * Class Access.
@@ -149,5 +150,12 @@ class Access
     public function hasPermissions($permissions, $needsAll = false)
     {
         return $this->allowMultiple($permissions, $needsAll);
+    }
+
+    public function getPermissionByTier($userLevel)
+    {
+        $categoryRepo = new EloquentCategoryRepository;
+
+        return $categoryRepo->getPermissionByTier($userLevel);
     }
 }

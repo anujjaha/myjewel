@@ -207,6 +207,15 @@ class EloquentCategoryRepository extends DbRepository
      */
     public function getAll($orderBy = 'id', $sort = 'asc')
     {
+    	$user = access()->user();
+
+    	if($user && $user->id != 1)
+    	{
+    		$categories 	= access()->getPermissionByTier($user->user_level);
+    		$categoryIds 	= $categories->pluck('category_id')->unique()->toArray();
+
+    		return  $this->model->whereIn('id', $categoryIds)->get();
+    	}
         return $this->model->all();
     }
 
