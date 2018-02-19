@@ -29,6 +29,7 @@ class EloquentCategoryRepository extends DbRepository
 	 * @var array
 	 */
 	public $tableHeaders = [
+		'id' 			=> '# (ID)',
 		'title' 		=> 'Title',
 		'productscount' => 'Products Count',
 		'image' 		=> 'Image',
@@ -41,6 +42,12 @@ class EloquentCategoryRepository extends DbRepository
 	 * @var array
 	 */
 	public $tableColumns = [
+		'id' => [
+			'data' 			=> 'id',
+			'name' 			=> 'id',
+			'searchable' 	=> true, 
+			'sortable'		=> true
+		],
 		'title' => [
 			'data' 			=> 'title',
 			'name' 			=> 'title',
