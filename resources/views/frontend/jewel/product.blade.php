@@ -5,7 +5,7 @@
 
 @include('frontend.jewel.menu')
 
-<main role="main" id="main-container">
+{{-- <main role="main" id="main-container">
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-lg-12">
@@ -23,7 +23,41 @@
             </div>
         </div>
     </div>
-</main>
+</main> --}}
+
+<main role="main" id="main-container">
+	<div class="container h-100">
+        <div class="row h-100">
+			
+			{{-- <div class="col-md-4">
+				test	
+			</div>
+			<div class="col-md-4">
+				test	
+			</div> --}}
+			@php
+				$sr = 1;
+			@endphp
+
+			@foreach($products as $product)
+                <div class="col-md-4">
+                	<a href="{{ route('frontend.jewel-products-details', ['id' => $product->id]) }}">
+                    	<img src="{{ URL::to('/').'/uploads/product/'.$product->image}}" alt="" width="400" height="300">
+                        <center><span class="text-center">{{ $product->title }}</span></center>
+                    </a>
+                </div>
+
+                @php
+                	if( ($sr % 3) == 0 )
+                	{
+                		echo '<div class="col-md-12"><br><hr></div>';
+                	}
+                	$sr++;
+                @endphp
+            @endforeach
+		</div>
+	</div>
+</main>	
 
 @include('frontend.jewel.footer')
 

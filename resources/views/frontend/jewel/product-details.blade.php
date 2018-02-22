@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="row mt-4 align-items-center">
-                    <div class="col col-auto"><span class="price-label"><i class="fa fa-circle"></i> $ {{ $product->price }}</span></div>
+                   {{--  <div class="col col-auto"><span class="price-label"><i class="fa fa-circle"></i> $ {{ $product->price }}</span></div> --}}
                     <div class="col col-auto"><span class="code">Product Code: {{ $product->product_code }}</span></div>
                 </div>
 
