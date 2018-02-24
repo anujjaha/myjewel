@@ -7,6 +7,7 @@
 Route::get('/', 'FrontendController@index')->name('index');
 Route::get('/jewel-categories', 'FrontendController@jewelCategories')->name('jewel-categories');
 Route::get('/jewel-products', 'FrontendController@jewelProducts')->name('jewel-products');
+Route::get('/jewel-products-by-category/{id}', 'FrontendController@jewelProductsByCategory')->name('jewel-products-by-category');
 Route::get('/product-details/{id}', 'FrontendController@productDetails')->name('jewel-products-details');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 

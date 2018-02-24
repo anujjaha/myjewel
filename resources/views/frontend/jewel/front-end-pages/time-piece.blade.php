@@ -20,7 +20,7 @@
     <div class="container h-100">
         <div class="row h-100">
             <div class="col-md-12">
-                <h2>TimePiece Show Schedule</h2>
+                <h2>Show Schedule</h2>
                     <br>
                 <hr>
                 {{-- <span><a href="{!! (! isset(access()->user()->id)) ?  route('frontend.auth.login') :  route('frontend.frontend.jewel-products')  !!}" class="btn shop-btn">Shop Now</a>

@@ -43,6 +43,13 @@ class FrontendController extends Controller
         return view('frontend.jewel.product')->with('products', $this->productRepository->getAll());
     }
 
+    public function jewelProductsByCategory($id)
+    {
+        return view('frontend.jewel.product')->with('products', $this->productRepository->getAllByCategoryId($id));
+    }
+
+    
+
     public function productDetails($id)
     {
         return view('frontend.jewel.product-details')->with('product', $this->productRepository->getById($id));

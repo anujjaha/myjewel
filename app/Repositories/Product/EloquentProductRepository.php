@@ -458,4 +458,14 @@ class EloquentProductRepository extends DbRepository
     	return count($productData);
 
     }
+
+    public function getAllByCategoryId($categoryId = null, $orderBy = 'id', $sort = 'asc')
+    {
+    	if($categoryId)
+    	{
+    		return $this->model->where('category_id', $categoryId)->orderBy($orderBy, $sort)->get();	
+    	}
+
+    	return $this->model->all();   	
+    }
 }

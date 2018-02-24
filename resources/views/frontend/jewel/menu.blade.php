@@ -36,14 +36,14 @@
                                 <a class="nav-link" href="{!! route('frontend.jewel-products') !!}">Products</a>
                             </li>
                             <li class="nav-item {{ active_class(Active::checkUriPattern('time-piece')) }}">
-                                <a class="nav-link" href="{!! route('frontend.time-piece') !!}">Timepiece</a>
+                                <a class="nav-link" href="{!! route('frontend.time-piece') !!}">Show Schedule</a>
                             </li>
-                            <li class="nav-item {{ active_class(Active::checkUriPattern('accessories')) }}">
+                            {{-- <li class="nav-item {{ active_class(Active::checkUriPattern('accessories')) }}">
                                 <a class="nav-link" href="{!! route('frontend.accessories') !!}">Accessories</a>
                             </li>
                             <li class="nav-item {{ active_class(Active::checkUriPattern('gifts')) }}">
                                 <a class="nav-link" href="{!! route('frontend.gifts') !!}">Gifts</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{!! route('frontend.index') !!}"><img src="images/star_icon.png" alt=""></a>
                             </li>
@@ -56,7 +56,7 @@
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{!! route('frontend.user.show-cart') !!}">Cart</a>
+                                    <a class="nav-link" href="{!! route('frontend.user.show-cart') !!}">WishList</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{!! route('frontend.auth.logout') !!}">Logout</a>
