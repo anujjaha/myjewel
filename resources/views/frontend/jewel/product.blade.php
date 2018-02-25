@@ -3,6 +3,8 @@
 @section('content')
 <body class="inner-bg">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/css/perfect-scrollbar.min.css"/>
+
 @include('frontend.jewel.menu')
 
 {{-- <main role="main" id="main-container">
@@ -25,7 +27,7 @@
     </div>
 </main> --}}
 
-<main role="main" id="main-container">
+<main role="main" id="main-container" style="height: 70%;">
 	<div class="container h-100">
         <div class="row h-100">
             @if(count($products))
@@ -70,6 +72,8 @@
 <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/slick.min.js')}}"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
+
 <script type="text/javascript">
 
     var slick = jQuery('.stack').slick(
@@ -88,6 +92,12 @@
             focusOnSelect: true,
             mobileFirst: true
         });
+
+        $(document).ready(function() 
+        {
+            $('#main-container').perfectScrollbar();
+        });
+
 
 </script>
 
