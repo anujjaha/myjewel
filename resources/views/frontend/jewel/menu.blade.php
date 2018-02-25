@@ -29,7 +29,7 @@
                             <li class="nav-item {{ active_class(Active::checkUriPattern('/')) }}">
                                 <a class="nav-link" href="{!! route('frontend.index') !!}">Our Company</a>
                             </li>
-                            @if(isset(access()->user()))
+                            @if(isset(access()->user()->id))
                                 <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-categories')) }}">
                                     <a class="nav-link" href="{!! route('frontend.jewel-categories') !!}">Categories</a>
                                 </li>
