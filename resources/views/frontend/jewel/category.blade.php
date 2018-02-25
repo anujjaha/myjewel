@@ -28,7 +28,7 @@
 <main role="main" id="main-container" style="height: 70%;">
     <div class="container h-100">
         <div class="row h-100">
-            @if(count($products))
+            @if(count($categories))
 
                 @php
                     $sr = 1;
