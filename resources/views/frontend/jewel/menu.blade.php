@@ -29,12 +29,14 @@
                             <li class="nav-item {{ active_class(Active::checkUriPattern('/')) }}">
                                 <a class="nav-link" href="{!! route('frontend.index') !!}">Our Company</a>
                             </li>
-                            <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-categories')) }}">
-                                <a class="nav-link" href="{!! route('frontend.jewel-categories') !!}">Categories</a>
-                            </li>
-                            <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-products')) }}">
-                                <a class="nav-link" href="{!! route('frontend.jewel-products') !!}">Products</a>
-                            </li>
+                            @if(isset(access()->user()))
+                                <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-categories')) }}">
+                                    <a class="nav-link" href="{!! route('frontend.jewel-categories') !!}">Categories</a>
+                                </li>
+                                <li class="nav-item {{ active_class(Active::checkUriPattern('jewel-products')) }}">
+                                    <a class="nav-link" href="{!! route('frontend.jewel-products') !!}">Products</a>
+                                </li>
+                            @endif
                             <li class="nav-item {{ active_class(Active::checkUriPattern('time-piece')) }}">
                                 <a class="nav-link" href="{!! route('frontend.time-piece') !!}">Show Schedule</a>
                             </li>
