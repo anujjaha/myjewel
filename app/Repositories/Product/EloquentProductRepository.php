@@ -262,7 +262,7 @@ class EloquentProductRepository extends DbRepository
     	{
     		$user = access()->user();
 
-    		if($user->id != 1)
+    		if(isset($user) && $user->id != 1)
     		{
     			$permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
     			return $this->model->whereIn('category_id', $permissionIds)->orderBy($orderBy, $sort)->get();	
