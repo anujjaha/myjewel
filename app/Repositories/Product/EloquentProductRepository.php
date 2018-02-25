@@ -260,6 +260,14 @@ class EloquentProductRepository extends DbRepository
     {
     	if(isset($orderBy) && $sort)
     	{
+    		$user = access()->user();
+
+    		if($user->id != 1)
+    		{
+    			$permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
+    			return $this->model->whereIn('category_id', $permissionIds)->orderBy($orderBy, $sort)->get();	
+    		}
+
     		return $this->model->orderBy($orderBy, $sort)->get();	
     	}
 

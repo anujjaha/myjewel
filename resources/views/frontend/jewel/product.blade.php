@@ -28,9 +28,11 @@
 <main role="main" id="main-container">
 	<div class="container h-100">
         <div class="row h-100">
-			@php
+            @if(count($products))
+            {
+            @php
 				$sr = 1;
-			@endphp
+            @endphp
 
 			@foreach($products as $product)
                 <div class="col-md-4">
@@ -48,6 +50,9 @@
                 	$sr++;
                 @endphp
             @endforeach
+            @else
+                <div><h2> No Products Found</h2></div>
+            @endif
 		</div>
 	</div>
 </main>	
