@@ -15,4 +15,6 @@ Route::group([
 	
     Route::get('/', 'AdminProductController@index')->name('product.index');
     
+    Route::post('/delete-products', 'AdminProductController@deleteProducts')->name('product.ajax-delete-products');
+    
 });

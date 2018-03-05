@@ -7,6 +7,7 @@ use App\Repositories\DbRepository;
 use App\Exceptions\GeneralException;
 use App\Models\BulkUpload\BulkUpload;
 use App\Models\Cart\Cart;
+use App\Models\OrderItem\OrderItem;
 
 class EloquentProductRepository extends DbRepository
 {
@@ -30,6 +31,7 @@ class EloquentProductRepository extends DbRepository
 	 * @var array
 	 */
 	public $tableHeaders = [
+		'' 		=> '',
 		'title' 		=> 'Title',
 		'category' 		=> 'Category',
 		'price' 		=> 'Price',
@@ -49,6 +51,12 @@ class EloquentProductRepository extends DbRepository
 	 * @var array
 	 */
 	public $tableColumns = [
+		'id' => [
+			'data' 			=> 'id',
+			'name' 			=> 'id',
+			'searchable' 	=> false, 
+			'sortable'		=> false
+		],
 		'title' => [
 			'data' 			=> 'title',
 			'name' 			=> 'title',
@@ -475,5 +483,21 @@ class EloquentProductRepository extends DbRepository
     	}
 
     	return $this->model->all();   	
+    }
+
+    public function deleteMultipleProducts($productIds = array())
+    {
+    	if(is_array($productIds) && count($productIds))
+    	{
+    		$cart = new Cart;
+    		$cart->whereIn('product_id', $productIds)->delete();
+
+    		$orderItem = new OrderItem;
+    		$orderItem->whereIn('product_id', $productIds)->delete();
+
+    		return $this->model->whereIn('id', $productIds)->delete();
+    	}
+
+    	return false;
     }
 }

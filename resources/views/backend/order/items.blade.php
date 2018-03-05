@@ -43,6 +43,7 @@
                         <thead>
                             <tr>
                             <th> Name </th>
+                            <th> Image </th>
                             <th> Qty </th>
                             <th> Price </th>
                             <th> Sub Total </th>
@@ -51,6 +52,9 @@
                             @foreach($item->order_items as $orderItem)
                                 <tr>
                                     <td>{{ $orderItem->product->title }}</td>
+                                    <td>
+                                        <img src="{{ URL::to('/').'/uploads/product/'.$orderItem->product->image}}" alt="" height="150" width="150">
+                                    </td>
                                     <td>{{ $orderItem->qty }}</td>
                                     <td>{{ $orderItem->price }}</td>
                                     <td>{{ $orderItem->total }}</td>

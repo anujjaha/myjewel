@@ -48,8 +48,8 @@ class AdminProductController extends Controller
 	 */
 	public function __construct()
 	{
-		$this->repository         = new EloquentProductRepository;
-        $this->categoryRepository = new EloquentCategoryRepository;
+		  $this->repository           = new EloquentProductRepository;
+      $this->categoryRepository   = new EloquentCategoryRepository;
 	}
 
     /**
@@ -59,10 +59,6 @@ class AdminProductController extends Controller
      */
     public function index()
     {
-            $general = 'https://news.google.com/news/rss/?gl=US&ned=us';
-            $url    = 'https://news.google.com/news/rss/search/section/q/share market/share market?hl=en&gl=US&ned=us';
-            
-
         return view($this->repository->setAdmin(true)->getModuleView('listView'))->with([
             'repository' => $this->repository
         ]);
@@ -233,6 +229,9 @@ class AdminProductController extends Controller
     {
         return Datatables::of($this->repository->getForDataTable())
 		    ->escapeColumns(['title', 'sort'])
+          ->addColumn('id', function ($event) {
+                return '<input type="checkbox" name="product-checkbox" value="'.$event->id.'">';
+            })
             ->escapeColumns(['category', 'sort'])
             ->escapeColumns(['price', 'sort'])
             ->escapeColumns(['qty', 'sort'])
@@ -278,5 +277,23 @@ class AdminProductController extends Controller
                 return $event->admin_action_buttons;
             })
 		    ->make(true);
+    }
+
+    public function deleteProducts(Request $request)
+    {
+      if($request->get('productIds'))
+      {
+        $productIds = explode(",", $request->get('productIds'));
+        $status     = $this->repository->deleteMultipleProducts($productIds);
+
+        if($status)
+        {
+          return response()->json((object) [
+                      'status'    => true
+                  ], 200);
+        }
+      }
+
+      return response()->json((object) ['status' => false], 200);
     }
 }

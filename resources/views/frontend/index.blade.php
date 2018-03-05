@@ -9,10 +9,7 @@
     <div class="container h-100">
         <div class="row h-100 d-flex align-items-center">
             <div class="col-lg-5">
-                <h2>Pellentesque sed metus sit amet leo pulvinar euismod</h2>
-                <div class="home-content mb-3">Integer euismod molestie quam, non feugiat augue rhoncus suscipit. Proin id est non sapien feugiat fermentum. Duis mollis sagittis ligula, vel lacinia massa. Sed id posuere odio.</div>
-                    <a href="#" class="btn shop-btn">Shop Now</a>
-
+                {!! access()->getBlock('home-page') !!}
             </div>
         </div>
 </main>

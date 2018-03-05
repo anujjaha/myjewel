@@ -2,6 +2,7 @@
 
 namespace App\Services\Access;
 
+use App\Models\Content\Content;
 use Illuminate\Contracts\Auth\Authenticatable;
 use App\Repositories\Category\EloquentCategoryRepository;
 
@@ -157,5 +158,15 @@ class Access
         $categoryRepo = new EloquentCategoryRepository;
 
         return $categoryRepo->getPermissionByTier($userLevel);
+    }
+
+    public function getBlock($key = null)
+    {
+        if($key)
+        {
+            return Content::where('data_key', $key)->pluck('content')->first();
+        }
+
+        return '';
     }
 }
