@@ -302,3 +302,12 @@ background: url("../images/search-icon.png") 15px center no-repeat;
 .cart-info-table table tr td .price { font-size: 17px;}
 .total-amount-box { margin: 15px 0 50px 0; padding: 15px; background-color:rgba(34, 34, 34, 0.5);border: #979797 solid 1px; text-align: right; border-radius:0px; color: #fff; font-size: 22px;}
 .total-amount-box span { padding: 0 0 0 20px; color: #c9a97a;} 
+
+
+ul.pagination > li {
+    padding: 5px !important;
+}
+
+ul.pagination > li.active {
+    color: #f2c17c !important;
+}

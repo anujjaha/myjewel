@@ -5,6 +5,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/css/perfect-scrollbar.min.css"/>
 
+
+
 @include('frontend.jewel.menu')
 
 {{-- <main role="main" id="main-container">
@@ -30,27 +32,42 @@
 <main role="main" id="main-container" style="height: 70%;">
 	<div class="container h-100">
         <div class="row h-100">
-            @if(count($products))
+
             @php
+                $user = access()->user();
+                
+                if($user->id == 1)
+                {
+                    $products = $repository->model->paginate(9);
+                }
+                else
+                {
+                    $permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
+                
+                    $products = $repository->model->whereIn('category_id', $permissionIds)->paginate(9);
+                }
 				$sr = 1;
             @endphp
+            @if(count($products))
+    			@foreach($products as $product)
+                    <div class="col-md-4 col-lg-4">
+                    	<a href="{{ route('frontend.jewel-products-details', ['id' => $product->id]) }}">
+                        	<img src="{{ URL::to('/').'/uploads/product/'.$product->image}}" alt="" width="250" height="120">
+                            <center><span class="text-center">{{ $product->title }}</span></center>
+                        </a>
+                    </div>
 
-			@foreach($products as $product)
-                <div class="col-md-4 col-lg-4">
-                	<a href="{{ route('frontend.jewel-products-details', ['id' => $product->id]) }}">
-                    	<img src="{{ URL::to('/').'/uploads/product/'.$product->image}}" alt="" width="250" height="120">
-                        <center><span class="text-center">{{ $product->title }}</span></center>
-                    </a>
+                    @php
+                    	if( ($sr % 3) == 0 )
+                    	{
+                    		echo '<div class="col-md-12"><br><hr></div>';
+                    	}
+                    	$sr++;
+                    @endphp
+                @endforeach
+                <div class="col-md-12 text-center"> 
+                    <center>{!! $products->links() !!}</center>
                 </div>
-
-                @php
-                	if( ($sr % 3) == 0 )
-                	{
-                		echo '<div class="col-md-12"><br><hr></div>';
-                	}
-                	$sr++;
-                @endphp
-            @endforeach
             @else
                 <div><h2> No Products Found</h2></div>
             @endif
@@ -75,6 +92,13 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/js/perfect-scrollbar.jquery.min.js"></script>
 
 <script type="text/javascript">
+
+    jQuery(document).ready(function()
+    {
+        jQuery("ul.pagination > li").css('padding', '10px;');
+        jQuery("ul.pagination > li.active").css('color', '#f2c17c');
+
+    });
 
     var slick = jQuery('.stack').slick(
         {

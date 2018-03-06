@@ -5,9 +5,9 @@
                 <ul class="footer-link">
                     <li><a href="{!! route('frontend.client-service') !!}">Client Services</a></li>
                     <li><a href="{!! route('frontend.corporate') !!}">Corporate</a></li>
-                    <li><a href="{!! route('frontend.catelogs') !!}">Catelogs</a></li>
+                    <li><a href="{!! route('frontend.catelogs') !!}">Catalogs</a></li>
                     <li><a href="{!! route('frontend.legal-terms') !!}">Legal Terms</a></li>
-                    <li><a href="{!! route('frontend.help-desk') !!}">Help</a></li>
+                    {{-- <li><a href="{!! route('frontend.help-desk') !!}">Help</a></li> --}}
                     <li><a href="{!! route('frontend.contact-us') !!}">Contact Us</a></li>
                 </ul>
             </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 text-center text-lg-right">
                 <div class="d-inline-block position-relative mr-lg-4 mr-0">
-                    <input type="text" placeholder="Newsletter Singup" class="newsletter" style="width: 210px;">
+                    <input type="text" placeholder="Newsletter Sing up" class="newsletter" style="width: 210px;">
                     <input type="submit" value="" id="send-newsletter" class="newsletter-btn">
                 </div>
                 <ul class="footer-social d-inline-block">

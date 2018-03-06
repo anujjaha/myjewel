@@ -78,8 +78,7 @@ class AdminContentController extends Controller
     public function create(Request $request)
     {
         return view($this->repository->setAdmin(true)->getModuleView('createView'))->with([
-            'repository'            => $this->repository,
-            'categoryRepository'    => $this->categoryRepository
+            'repository'            => $this->repository
         ]);
     }
 
