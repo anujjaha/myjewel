@@ -59,6 +59,14 @@
                     <span>Manage Orders</span>
                 </a>
             </li>
+
+            <li class="{{ active_class(Active::checkUriPattern('admin/content')) }}">
+                <a href="{{ route('admin.content.index') }}">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Manage Content</span>
+                </a>
+            </li>
+            
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
