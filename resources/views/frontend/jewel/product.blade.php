@@ -38,13 +38,13 @@
                 
                 if($user->id == 1)
                 {
-                    $products = $repository->model->paginate(9);
+                    $products = $repository->model->orderBy('id', 'desc')->paginate(9);
                 }
                 else
                 {
                     $permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
                 
-                    $products = $repository->model->whereIn('category_id', $permissionIds)->paginate(9);
+                    $products = $repository->model->whereIn('category_id', $permissionIds)->orderBy('id', 'desc')->paginate(9);
                 }
 				$sr = 1;
             @endphp
