@@ -53,7 +53,7 @@
                     @endphp
                 @endforeach
                 <div class="col-md-12 text-center"> 
-                    <center>{!! $products->links() !!}</center>
+                    {{-- <center>{!! $products->links() !!}</center> --}}
                 </div>
             @else
                 <div><h2> No Products Found</h2></div>
@@ -61,6 +61,23 @@
 		</div>
 	</div>
 </main>	
+
+@if(isset($products) && count($products))
+<div>
+    <div class="container h-100">
+        <div class="row">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4" id="">
+                <center> {!! $products->links() !!} </center>
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 @include('frontend.jewel.footer')
 
