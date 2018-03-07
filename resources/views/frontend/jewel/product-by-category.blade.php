@@ -63,21 +63,22 @@
 </main>	
 
 @if(isset($products) && count($products))
-<div>
-    <div class="container h-100">
-        <div class="row">
-            <div class="col-md-4">
-                
-            </div>
-            <div class="col-md-4" id="">
-                <center> {!! $products->links() !!} </center>
-            </div>
-            <div class="col-md-4">
-                
+    <div>
+        <div class="container h-100">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-4" id="">
+                    <center> {!! $products->links() !!} </center>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endif
 
 @include('frontend.jewel.footer')
 
