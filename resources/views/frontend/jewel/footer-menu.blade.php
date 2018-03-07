@@ -12,7 +12,9 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-1 col-sm-12 text-center pb-3 pb-lg-0">
-               <a href="#"><img src="images/logo.png" alt="footer-logo" width="50"></a>
+                <a href="{!! url('/') !!}">
+                    <img src="{{ URL::to('/').'/images/logo.png'}}"  alt="footer-logo" width="50">
+                </a>
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 text-center text-lg-right">
                 <div class="d-inline-block position-relative mr-lg-4 mr-0">
