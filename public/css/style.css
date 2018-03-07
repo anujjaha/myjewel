@@ -311,3 +311,11 @@ ul.pagination > li {
 ul.pagination > li.active {
     color: #f2c17c !important;
 }
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+
+#pagination-custom ul.footer-link li { display: inline-block; position: relative; padding: 5px 8px;}

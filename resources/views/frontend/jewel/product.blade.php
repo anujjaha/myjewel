@@ -5,7 +5,29 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.8.1/css/perfect-scrollbar.min.css"/>
 
-
+ <style type="text/css">
+        .toolbar ul {
+            display:table-row !important;
+        }
+        .toolbar ul li
+        {
+            display: table-cell !important;
+            height: 100px !important;
+            list-style-type: none !important;
+            margin: 10px !important;
+            vertical-align: middle !important;
+        }
+        .toolbar ul li a {
+            display:table-cell !important;
+            vertical-align: middle !important;
+            height:100px !important;
+            border: solid 1px black !important;
+        }
+        .toolbar ul li.button a {
+            height:50px !important;
+            border: solid 1px black !important;
+        }
+    </style>
 
 @include('frontend.jewel.menu')
 
@@ -38,13 +60,13 @@
                 
                 if($user->id == 1)
                 {
-                    $products = $repository->model->orderBy('id', 'desc')->paginate(9);
+                    $products = $repository->model->orderBy('id', 'desc')->paginate(2);
                 }
                 else
                 {
                     $permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
                 
-                    $products = $repository->model->whereIn('category_id', $permissionIds)->orderBy('id', 'desc')->paginate(9);
+                    $products = $repository->model->whereIn('category_id', $permissionIds)->orderBy('id', 'desc')->paginate(2);
                 }
 				$sr = 1;
             @endphp
@@ -66,7 +88,9 @@
                     @endphp
                 @endforeach
                 <div class="col-md-12 text-center"> 
-                    <center>{!! $products->links() !!}</center>
+                    <div class="toolbar">
+                        {{-- <center>{!! $products->links() !!}</center> --}}
+                    </div>
                 </div>
             @else
                 <div><h2> No Products Found</h2></div>
@@ -74,6 +98,22 @@
 		</div>
 	</div>
 </main>	
+
+<div>
+    <div class="container h-100">
+        <div class="row">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4" id="">
+                <center> {!! $products->links() !!} </center>
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 @include('frontend.jewel.footer')
 
