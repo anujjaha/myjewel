@@ -26,7 +26,8 @@
             <div class="col-lg-6">
                 <h2>{{ $product->title }}</h2>
                 <div class="details-des">
-                    {{ $product->category->title }}
+
+                    {{  isset($product->category) ? $product->category->title : '' }}
                 </div>
 
                 <div class="row mt-4 align-items-center">
