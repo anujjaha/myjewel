@@ -39,7 +39,7 @@
     			@foreach($products as $product)
                     <div class="col-md-4 col-lg-4">
                     	<a href="{{ route('frontend.jewel-products-details', ['id' => $product->id]) }}">
-                        	<img src="{{ URL::to('/').'/uploads/product/'.$product->image}}" alt="" width="250" height="120">
+                        	<img src="{{ URL::to('/').'/uploads/product/'.$product->image}}" alt="" width="250" height="250">
                             <center><span class="text-center">{{ $product->title }}</span></center>
                         </a>
                     </div>

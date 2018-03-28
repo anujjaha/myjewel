@@ -37,7 +37,7 @@
                 @foreach($categories as $category)
                     <div class="col-md-4 col-lg-4">
                             <a href="{{ route('frontend.jewel-products-by-category', ['id' => $category->id]) }}">
-                                <img src="{{ URL::to('/').'/uploads/category/'.$category->image}}"  width="350" height="250" alt="">
+                                <img src="{{ URL::to('/').'/uploads/category/'.$category->image}}"  width="250" height="250" alt="">
                                 <center><span class="text-center">{{ $category->title }}</span></center>
                             </a>
                         </a>
