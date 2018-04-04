@@ -185,4 +185,60 @@ class CategoryTransformer extends Transformer
         
         return $response;
     }
+
+    /**
+     * Login Banners
+     * 
+     * @param object $banners
+     * @return array
+     */
+    public function loginBanners($banners)
+    {
+        $response = [];
+
+        if($banners)
+        {
+            foreach($banners as $banner)   
+            {
+                $response[] = [
+                    'loginBannerId' => (int) $banner->id,
+                    'title'         => $banner->title,
+                    'subTitle'      => isset($banner->sub_title) ? $banner->sub_title : '',
+                    'contactNumber' => isset($banner->contact_number) ? $banner->contact_number : '',
+                    'emailId'       => isset($banner->email_id) ? $banner->email_id : '',
+                    'image'         => isset($banner->image) ? URL::to('/').'/uploads/login-banners/'.$banner->image : URL::to('/').'/uploads/login-banners/default.png',
+
+                ];
+            }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Feature Banners
+     * 
+     * @param object $banners
+     * @return array
+     */
+    public function featureBanners($banners)
+    {
+        $response = [];
+
+        if($banners)
+        {
+            foreach($banners as $banner)   
+            {
+                $response[] = [
+                    'featureBannerId' => (int) $banner->id,
+                    'title'         => $banner->title,
+                    'subTitle'      => isset($banner->sub_title) ? $banner->sub_title : '',
+                    'image'         => isset($banner->image) ? URL::to('/').'/uploads/feature-banners/'.$banner->image : URL::to('/').'/uploads/feature-banners/default.png',
+
+                ];
+            }
+        }
+
+        return $response;
+    }
 }

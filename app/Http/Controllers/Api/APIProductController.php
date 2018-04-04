@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Transformers\CategoryTransformer;
 use App\Http\Controllers\Api\BaseApiController;
 use App\Repositories\Product\EloquentProductRepository;
+use App\Repositories\LoginBanner\EloquentLoginBannerRepository;
+use App\Repositories\Banner\EloquentBannerRepository;
 
 class APIProductController extends BaseApiController 
 {   
@@ -210,6 +212,50 @@ class APIProductController extends BaseApiController
         $wishListCount     = $this->categoryTransformer->wishListCount();
 
         return $this->ApiSuccessResponse($wishListCount);
+    }
+
+    /**
+     * Get LoginBanners
+     * 
+     * @param Request $request
+     * @return json
+     */
+    public function getLoginBanners(Request $request)
+    {
+        $repository = new EloquentLoginBannerRepository;
+        $banners    = $repository->getAll();
+
+        if($banners && count($banners))
+        {
+            $bannerData = $this->categoryTransformer->loginBanners($banners);
+
+            return $this->ApiSuccessResponse($bannerData);
+        }
+
+        $error = [
+            'reason' => 'Unable to find Login Banners!'
+        ];
+
+        return $this->setStatusCode(400)->failureResponse($error, 'No Banners Found !');    
+    }
+
+    public function getFeatureBanners(Request $request)
+    {
+        $repository = new EloquentBannerRepository;
+        $banners    = $repository->getAll();
+
+        if($banners && count($banners))
+        {
+            $bannerData = $this->categoryTransformer->featureBanners($banners);
+
+            return $this->ApiSuccessResponse($bannerData);
+        }
+
+        $error = [
+            'reason' => 'Unable to find Login Banners!'
+        ];
+
+        return $this->setStatusCode(400)->failureResponse($error, 'No Banners Found !');    
     }
 
     public function getGoogleNews(Request $request)

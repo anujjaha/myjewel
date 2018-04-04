@@ -51,4 +51,7 @@ Route::group(['namespace' => 'Api', 'middleware' => 'jwt.customauth'], function 
 
     Route::get('products/wishlist-count', 'APIProductController@getWishListCount')->name('api-product.get-wish-list-count');    
     Route::any('orders/create', 'APIOrderController@create')->name('api-order.create');    
+
+    Route::get('login-banners', 'APIProductController@getLoginBanners')->name('api-banners.get-login-banners');    
+    Route::get('feature-banners', 'APIProductController@getFeatureBanners')->name('api-banners.get-feature-banners');    
 });
