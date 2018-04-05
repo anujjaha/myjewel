@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Transformers\CategoryTransformer;
 use App\Http\Controllers\Api\BaseApiController;
 use App\Repositories\Category\EloquentCategoryRepository;
+use App\Repositories\Banner\EloquentBannerRepository;
 
 class APICategoryController extends BaseApiController 
 {   
@@ -160,7 +161,17 @@ class APICategoryController extends BaseApiController
 
     public function featured(Request $request)
     {
-        $featureData = $this->categoryTransformer->featuredCategoryData();
+        $repository = new EloquentBannerRepository;
+        $banners    = $repository->getAll();
+        $bannerData = [];
+
+        if($banners && count($banners))
+        {
+            $bannerData = $this->categoryTransformer->featureBanners($banners);
+        }
+
+        
+        $featureData = $this->categoryTransformer->featuredCategoryData($bannerData);
 
         return $this->ApiSuccessResponse($featureData);
     }

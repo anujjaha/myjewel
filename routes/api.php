@@ -55,3 +55,9 @@ Route::group(['namespace' => 'Api', 'middleware' => 'jwt.customauth'], function 
     Route::get('login-banners', 'APIProductController@getLoginBanners')->name('api-banners.get-login-banners');    
     Route::get('feature-banners', 'APIProductController@getFeatureBanners')->name('api-banners.get-feature-banners');    
 });
+
+
+Route::group(['middleware' => 'jwt.customauth'], function () 
+{
+    includeRouteFiles(__DIR__.'/Api/');
+});

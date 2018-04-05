@@ -162,9 +162,16 @@ class CategoryTransformer extends Transformer
         return $response;
     }
 
-    public function featuredCategoryData()
+    public function featuredCategoryData($data)
     {
-        return  [
+        $response = [];
+
+        if($data)
+        {
+            $response['featuredData'] = $data;
+        }
+
+        $oldData = [
             'featured'  => [
                 'title'     => 'New Arrival',
                 'subtitle'  => 'Fall Winter 2017-18 Fashion Show',
@@ -172,6 +179,7 @@ class CategoryTransformer extends Transformer
             ]
         ];
 
+        return array_merge($response, $oldData);
     }
 
     public function wishListCount()
