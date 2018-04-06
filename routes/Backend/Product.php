@@ -16,5 +16,6 @@ Route::group([
     Route::get('/', 'AdminProductController@index')->name('product.index');
     
     Route::post('/delete-products', 'AdminProductController@deleteProducts')->name('product.ajax-delete-products');
+    Route::post('/update-products-category', 'AdminProductController@updateProductsCategory')->name('product.ajax-update-products-category');
     
 });

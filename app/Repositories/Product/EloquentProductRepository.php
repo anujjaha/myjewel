@@ -500,4 +500,21 @@ class EloquentProductRepository extends DbRepository
 
     	return false;
     }
+
+    /**
+     * Update Products Category
+     * 
+     * @param int $categoryId
+     * @param array $productIds
+     * @return bool
+     */
+    public function updateProductsCategory($categoryId = null, $productIds = array())
+    {
+    	if(isset($categoryId) && count($productIds))
+    	{
+    		return $this->model->whereIn('id', $productIds)->update(['category_id' => $categoryId]);
+    	}
+
+    	return false;
+    }
 }

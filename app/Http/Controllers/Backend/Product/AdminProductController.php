@@ -60,7 +60,8 @@ class AdminProductController extends Controller
     public function index()
     {
         return view($this->repository->setAdmin(true)->getModuleView('listView'))->with([
-            'repository' => $this->repository
+            'repository'          => $this->repository,
+            'categoryRepository'  => $this->categoryRepository
         ]);
     }
 
@@ -285,6 +286,26 @@ class AdminProductController extends Controller
       {
         $productIds = explode(",", $request->get('productIds'));
         $status     = $this->repository->deleteMultipleProducts($productIds);
+
+        if($status)
+        {
+          return response()->json((object) [
+                      'status'    => true
+                  ], 200);
+        }
+      }
+
+      return response()->json((object) ['status' => false], 200);
+    }
+
+    public function updateProductsCategory(Request $request)
+    {
+      if($request->get('productIds'))
+      {
+
+        $categoryId = $request->get('categoryId');
+        $productIds = explode(",", $request->get('productIds'));
+        $status     = $this->repository->updateProductsCategory($categoryId, $productIds);
 
         if($status)
         {
