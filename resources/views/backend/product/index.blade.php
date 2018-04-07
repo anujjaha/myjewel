@@ -219,8 +219,7 @@
                     {
                         if(data.status == true)
                         {
-                            alert("Products Category Successfully Updated!");
-                            location.reload();
+                            alert("Total "+ favorite.length +" Product's Category Updated Successfully!");
                         }
                     },
                     error: function(data)

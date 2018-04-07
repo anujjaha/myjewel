@@ -66,6 +66,13 @@
                     <span>Manage Content</span>
                 </a>
             </li>
+
+            <li class="{{ active_class(Active::checkUriPattern('admin/login-banners')) }}">
+                <a href="{{ route('admin.login-banners.index') }}">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Manage Banners</span>
+                </a>
+            </li>
             
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
