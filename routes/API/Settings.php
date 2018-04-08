@@ -8,7 +8,7 @@ Route::group(['namespace' => 'Api'], function()
     Route::post('settings/delete', 'APISettingsController@delete')->name('settings.delete');
 
     // Get Privacy Policy
-    Route::get('settings/privacy-policy', 'APISettingsController@getPrivacyPolicy')->name('settings.privacy-policy');
-    Route::get('settings/terms-conditions', 'APISettingsController@getTermsConditions')->name('settings.terms-conditions');
+   // Route::get('settings/privacy-policy', 'APISettingsController@getPrivacyPolicy')->name('settings.privacy-policy');
+    //Route::get('settings/terms-conditions', 'APISettingsController@getTermsConditions')->name('settings.terms-conditions');
 });
 ?>

@@ -23,6 +23,12 @@ Route::group(['namespace' => 'Api',], function ()
     Route::post('register', 'UsersController@register')->name('api.register');
     Route::post('register-guest', 'UsersController@registerAsGuest')->name('api.register-as-guest');
     Route::post('forgotpassword', 'UsersController@forgotPassword')->name('api.forgotPassword');
+
+     // Get Privacy Policy
+    Route::get('settings/privacy-policy', 'APISettingsController@getPrivacyPolicy')->name('settings.privacy-policy');
+    Route::get('settings/terms-conditions', 'APISettingsController@getTermsConditions')->name('settings.terms-conditions');
+
+    
     /*Route::post('verifyotp', 'UsersController@verifyOtp')->name('api.verifyotp');
 
     Route::post('resendotp', 'UsersController@resendOtp')->name('api.resendotp');
