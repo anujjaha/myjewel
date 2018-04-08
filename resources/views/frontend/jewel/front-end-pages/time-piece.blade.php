@@ -27,7 +27,7 @@
                 <p>
                     {{ isset($schedule->address_line_two) ? $schedule->address_line_two . ',' : '' }}
                      {{ isset($schedule->city) ? $schedule->city . ',' : '' }}
-                     {{ isset($schedule->state) ? $schedule->state . ',' : '' }}
+                     {{ isset($schedule->state) ? $schedule->state }}
                      {{ $schedule->zip}}</p>
             </div>
 
