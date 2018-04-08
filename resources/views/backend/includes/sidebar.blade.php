@@ -67,6 +67,13 @@
                 </a>
             </li>
 
+            <li class="{{ active_class(Active::checkUriPattern('admin/schedule')) }}">
+                <a href="{{ route('admin.schedule.index') }}">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Manage Show Schedule</span>
+                </a>
+            </li>
+
             <li class="{{ active_class(Active::checkUriPattern('admin/login-banners')) }}">
                 <a href="{{ route('admin.login-banners.index') }}">
                     <i class="fa fa-product-hunt" aria-hidden="true"></i>
