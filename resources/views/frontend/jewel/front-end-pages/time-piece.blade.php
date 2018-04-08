@@ -5,17 +5,6 @@
 
 @include('frontend.jewel.menu')
 
-{{-- <main role="main" id="main-container">
-    <div class="container h-100">
-        <div class="row h-100 d-flex align-items-center">
-            <div class="col-lg-5">
-                <h2>TimePiece Show Schedule</h2>
-                    <a href="{!! (! isset(access()->user()->id)) ?  route('frontend.auth.login') :  route('frontend.frontend.jewel-products')  !!}" class="btn shop-btn">Shop Now</a>
-
-            </div>
-        </div>
-</main> --}}
-
 <main role="main" id="main-container">
     <div class="container h-100">
         <div class="row h-100">
@@ -26,7 +15,10 @@
                 {{-- <span><a href="{!! (! isset(access()->user()->id)) ?  route('frontend.auth.login') :  route('frontend.frontend.jewel-products')  !!}" class="btn shop-btn">Shop Now</a>
                 </span> --}}
             </div>
-            
+            @php
+                $sr = 1;
+            @endphp
+
             @foreach($repository->getAll() as $schedule)
                 <div class="col-md-4">
                 <p><strong style="color: #f2c17c;"> {{ $schedule->title }}</strong></p>
@@ -38,6 +30,15 @@
                      {{ isset($schedule->state) ? $schedule->state . ',' : '' }}
                      {{ $schedule->zip}}</p>
             </div>
+
+                @php
+                    $sr++;
+
+                    if( ($sr % 3 ) == 0 )
+                    {
+                        echo '<div class="col-md-12"><br><hr></div>';
+                    }
+                @endphp
             @endforeach
         </div>
     </div>
