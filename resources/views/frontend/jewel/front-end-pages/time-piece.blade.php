@@ -30,7 +30,7 @@
             @foreach($repository->getAll() as $schedule)
                 <div class="col-md-4">
                 <p><strong style="color: #f2c17c;"> {{ $schedule->title }}</strong></p>
-                <p>{{ date('F', strtotime($schedule->start_date)) }} – {{ date('F, Y', strtotime($schedule->end_date)) }}</p>
+                <p>{{ date('F d', strtotime($schedule->start_date)) }} – {{ date('F d, Y', strtotime($schedule->end_date)) }}</p>
                 <p>{{ $schedule->address_line_one }}</p>
                 <p>
                     {{ isset($schedule->address_line_two) ? $schedule->address_line_two . ',' : '' }}
