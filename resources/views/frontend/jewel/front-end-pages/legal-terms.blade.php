@@ -8,7 +8,7 @@
 <main role="main" id="main-container">
     <div class="container h-100">
         <div class="row h-100 d-flex align-items-center">
-            <div class="col-lg-5">
+            <div class="col-lg-12">
                 {!! access()->getBlock('legal-terms-page') !!}
             </div>
         </div>
