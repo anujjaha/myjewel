@@ -48,28 +48,28 @@
     <div class="form-group">
         {{ Form::label('address_line_two', 'Address Line Two :', ['class' => 'col-lg-2 control-label']) }}
         <div class="col-lg-10">
-            {{ Form::text('address_line_two', null, ['class' => 'form-control', 'placeholder' => 'Address Line Two', 'required' => 'required']) }}
+            {{ Form::text('address_line_two', null, ['class' => 'form-control', 'placeholder' => 'Address Line Two']) }}
         </div>
     </div>
 </div><div class="box-body">
     <div class="form-group">
         {{ Form::label('city', 'City :', ['class' => 'col-lg-2 control-label']) }}
         <div class="col-lg-10">
-            {{ Form::text('city', null, ['class' => 'form-control', 'placeholder' => 'City', 'required' => 'required']) }}
+            {{ Form::text('city', null, ['class' => 'form-control', 'placeholder' => 'City']) }}
         </div>
     </div>
 </div><div class="box-body">
     <div class="form-group">
         {{ Form::label('state', 'State :', ['class' => 'col-lg-2 control-label']) }}
         <div class="col-lg-10">
-            {{ Form::text('state', null, ['class' => 'form-control', 'placeholder' => 'State', 'required' => 'required']) }}
+            {{ Form::text('state', null, ['class' => 'form-control', 'placeholder' => 'State']) }}
         </div>
     </div>
 </div><div class="box-body">
     <div class="form-group">
         {{ Form::label('zip', 'Zip :', ['class' => 'col-lg-2 control-label']) }}
         <div class="col-lg-10">
-            {{ Form::text('zip', null, ['class' => 'form-control', 'placeholder' => 'Zip', 'required' => 'required']) }}
+            {{ Form::text('zip', null, ['class' => 'form-control', 'placeholder' => 'Zip']) }}
         </div>
     </div>
 </div>
