@@ -264,7 +264,7 @@ class EloquentProductRepository extends DbRepository
      * @param string $sort
      * @return mixed
      */
-    public function getAll($orderBy = 'id', $sort = 'asc')
+    public function getAll($orderBy = 'id', $sort = 'asc', $max = null)
     {
     	if(isset($orderBy) && $sort)
     	{
@@ -273,7 +273,18 @@ class EloquentProductRepository extends DbRepository
     		if(isset($user) && $user->id != 1)
     		{
     			$permissionIds = access()->getPermissionByTier($user->user_level)->pluck('category_id')->toArray();
+
+    			if(isset($max) && is_numeric($max))
+    			{
+    				return $this->model->whereIn('category_id', $permissionIds)->orderBy($orderBy, $sort)->limit($max)->get();	
+    			}
+    			
     			return $this->model->whereIn('category_id', $permissionIds)->orderBy($orderBy, $sort)->get();	
+    		}
+
+    		if(isset($max) && is_numeric($max))
+    		{
+    			return $this->model->orderBy($orderBy, $sort)->limit($max)->get();	
     		}
 
     		return $this->model->orderBy($orderBy, $sort)->get();	

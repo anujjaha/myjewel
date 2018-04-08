@@ -3,6 +3,7 @@
 namespace App\Services\Access;
 
 use App\Models\Content\Content;
+use App\Models\Settings\Settings;
 use Illuminate\Contracts\Auth\Authenticatable;
 use App\Repositories\Category\EloquentCategoryRepository;
 
@@ -165,6 +166,22 @@ class Access
         if($key)
         {
             return Content::where('data_key', $key)->pluck('content')->first();
+        }
+
+        return '';
+    }
+
+    /**
+     * Get Setting
+     * 
+     * @param string $key
+     * @return object
+     */
+    public function getSetting($key = null)
+    {
+        if($key)
+        {
+            return Settings::where('data_key', $key)->pluck('value')->first();
         }
 
         return '';

@@ -40,7 +40,8 @@ class APIProductController extends BaseApiController
     public function index(Request $request) 
     {
         $userInfo   = $this->getApiUserInfo();
-        $products   = $this->repository->getAll('id', 'desc');
+        $max        = access()->getSetting('show-limited-products-feature-page-mobile');
+        $products   = $this->repository->getAll('id', 'desc', $max);
 
         if($products && count($products))
         {

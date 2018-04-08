@@ -39,7 +39,7 @@ class APICategoryController extends BaseApiController
     public function index(Request $request) 
     {
         $userInfo   = $this->getApiUserInfo();
-        $categories = $this->repository->getAll();
+        $categories = $this->repository->getAll('title');
 
         if($categories && count($categories))
         {

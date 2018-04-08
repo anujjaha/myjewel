@@ -73,6 +73,13 @@
                     <span>Manage Banners</span>
                 </a>
             </li>
+
+            <li class="{{ active_class(Active::checkUriPattern('admin/settings')) }}">
+                <a href="{{ route('admin.settings.index') }}">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Manage Settings</span>
+                </a>
+            </li>
             
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
