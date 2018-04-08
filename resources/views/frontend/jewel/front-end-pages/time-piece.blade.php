@@ -16,7 +16,7 @@
                 </span> --}}
             </div>
             @php
-                $sr = 1;
+                $sr = 0;
             @endphp
 
             @foreach($repository->getAll() as $schedule)
