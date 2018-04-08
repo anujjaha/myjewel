@@ -27,64 +27,14 @@
                 </span> --}}
             </div>
             
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JIS – Jewelers International Show</strong></p>
-                <p>January 20 – January 22, 2018</p>
-                <p>Double Tree by Hilton Hotel Miami Airport</p>
-                <p>711 NW 72nd Ave, Miami, FL 33126</p>
+            @foreach($repository->getAll() as $schedule)
+                <div class="col-md-4">
+                <p><strong style="color: #f2c17c;"> {{ $schedule->title }}</strong></p>
+                <p>{{ date('D', strtotime($schedule->start_date)) }} – {{ date('D, Y', strtotime($schedule->end_date)) }}</p>
+                <p>{{ $schedule->address_line_one }}</p>
+                <p>{{ $schedule->address_line_two }}, {{ $schedule->city }}, {{ $schedule->state }}, {{ $schedule->zip}}</p>
             </div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">GJX - Gem and Jewelry Exchange</strong></p>
-                <p>January 30 - February 04, 2018</p>
-                <p>Tucson Convention Center</p>
-                <p>411 W Congress St, Tucson, AZ 85701</p>
-            </div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JA - New York Spring</strong></p>
-                <p>March 11 - March 13, 2018</p>
-                <p>Javits Convention Center</p>
-                <p>655 W. 34th St, New York, NY 10001</p>
-            </div>
-
-            <div class="col-md-12"><br><hr></div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JIS – Jewelers International Show</strong></p>
-                <p>April 14 - April 16, 2018</p>
-                <p>Miami Beach Convention Center</p>
-                <p>1900 Washington Ave, Miami Beach, FL 33139</p>
-            </div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JCK - Las Vegas</strong></p>
-                <p>June 1 - June 4, 2018</p>
-                <p>Mandalay Bay Resort & Casino</p>
-            </div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JA - New York Summer</strong></p>
-                <p>July 29 - July 31, 2018</p>
-                <p>Javits Convention Center</p>
-                <p>655 W. 34th St, New York, NY 10001</p>
-            </div>
-
-            <div class="col-md-12"><br><hr></div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JIS – Jewelers International Show</strong></p>
-                <p>October 19 - October 22, 2018</p>
-                <p>Miami Beach Convention Center</p>
-                <p>1900 Washington Ave, Miami Beach, FL 33139</p>
-            </div>
-
-            <div class="col-md-4">
-                <p><strong style="color: #f2c17c;">JA - Special Delivery Show</strong></p>
-                <p>Oct 28 - Oct 30, 2018</p>
-                <p>Javits Convention Center</p>
-                <p>655 W. 34th St, New York, NY 10001</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </main> 

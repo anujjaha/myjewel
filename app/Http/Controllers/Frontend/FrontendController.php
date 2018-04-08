@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Repositories\Category\EloquentCategoryRepository;
 use App\Repositories\Product\EloquentProductRepository;
+use App\Repositories\Schedule\EloquentScheduleRepository;
 
 /**
  * Class FrontendController.
@@ -35,13 +36,13 @@ class FrontendController extends Controller
 
     public function jewelCategories()
     {
-        return view('frontend.jewel.category')->with('categories', $this->categoryRepository->getAll());
+        return view('frontend.jewel.category')->with('categories', $this->categoryRepository->getAll('title'));
     }
 
     public function jewelProducts()
     {
         return view('frontend.jewel.product')->with([
-            'products'      => $this->productRepository->getAll(),
+            'products'      => $this->productRepository->getAll('title'),
             'repository'    => $this->productRepository
         ]);
     }
@@ -63,7 +64,9 @@ class FrontendController extends Controller
 
     public function timePiece()
     {
-        return view('frontend.jewel.front-end-pages.time-piece');
+        $repository = new EloquentScheduleRepository;
+
+        return view('frontend.jewel.front-end-pages.time-piece')->with(['repository' => $repository]);
     }
 
     public function accessories()
