@@ -199,8 +199,8 @@ class APISettingsController extends BaseApiController
      */
     public function getTermsConditions(Request $request)
     {
-        $key        = 'mobile-terms-conditions';
-        $response   = access()->getSetting($key);
+        $key        = 'legal-terms-page';
+        $response   = access()->getBlock($key);
 
         if(isset($response) && count($response))
         {
