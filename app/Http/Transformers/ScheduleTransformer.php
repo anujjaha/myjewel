@@ -36,11 +36,11 @@ class ScheduleTransformer extends Transformer
                     "scheduleTitle"             =>  $item->title, 
                     "scheduleStartDate"         =>  $item->start_date, 
                     "scheduleEndDate"           =>  $item->end_date, 
-                    "scheduleAddressLineOne"    =>  $item->address_line_one, 
-                    "scheduleAddressLineTwo"    =>  $item->address_line_two, 
-                    "scheduleCity"              =>  $item->city, 
-                    "scheduleState"             =>  $item->state, 
-                    "scheduleZip"               =>  $item->zip, 
+                    "scheduleAddressLineOne"    =>  isset($item->address_line_one) ? $item->address_line_one : '', 
+                    "scheduleAddressLineTwo"    =>  isset($item->address_line_two) ? $item->address_line_two : '', 
+                    "scheduleCity"              =>  isset($item->city) ? $item->city : '', 
+                    "scheduleState"             =>  isset($item->state) ? $item->state : '', 
+                    "scheduleZip"               =>  isset($item->zip) ? $item->zip : '', 
                     "scheduleStatus"            =>  $item->status
                 ];
             }
