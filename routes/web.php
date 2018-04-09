@@ -8,6 +8,7 @@
 // Switch between the included languages
 Route::get('lang/{lang}', 'LanguageController@swap');
 
+
 /* ----------------------------------------------------------------------- */
 
 /*
@@ -16,6 +17,8 @@ Route::get('lang/{lang}', 'LanguageController@swap');
  */
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
+    
+    Route::get('custom-settings/policy', 'FrontendController@customPolicy');
 });
 
 /* ----------------------------------------------------------------------- */

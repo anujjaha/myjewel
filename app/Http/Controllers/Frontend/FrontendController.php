@@ -108,4 +108,12 @@ class FrontendController extends Controller
     {
         return view('frontend.jewel.front-end-pages.contact-us');   
     }
+
+    public function customPolicy()
+    {
+        $key        = 'legal-terms-page';
+        $response   = access()->getBlock($key);
+
+        return view('api.custom-page')->with('value', $response);   
+    }
 }
