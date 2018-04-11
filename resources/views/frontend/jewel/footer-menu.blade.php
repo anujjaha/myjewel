@@ -18,7 +18,7 @@
             </div>
             <div class="col-lg-5 col-md-6 col-sm-12 text-center text-lg-right">
                 <div class="d-inline-block position-relative mr-lg-4 mr-0">
-                    <input type="text" placeholder="Newsletter Sing up" class="newsletter" style="width: 210px;">
+                    <input type="text" placeholder="Newsletter Sign up" class="newsletter" style="width: 210px;">
                     <input type="submit" value="" id="send-newsletter" class="newsletter-btn">
                 </div>
                 <ul class="footer-social d-inline-block">
