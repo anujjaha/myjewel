@@ -22,9 +22,12 @@ trait Attribute
 	/**
 	 * @return string
 	 */
-	public function getDeleteButtonAttribute($routes, $prefix = 'admin')
+	public function getDeleteButtonAttribute($routes, $prefix = 'admin', $count = 0)
 	{
-	    return '<a href="'.route($prefix .'.'. $routes->deleteRoute, $this).'"
+		if($count < 2)
+			return ;
+		
+		return '<a href="'.route($prefix .'.'. $routes->deleteRoute, $this).'"
 	            data-method="delete"
 	            data-trans-button-cancel="Cancel"
 	            data-trans-button-confirm="Delete"
@@ -53,6 +56,6 @@ trait Attribute
 
 		$routes = $repository->getModuleRoutes();
 
-		return $this->getEditButtonAttribute($routes, $repository->adminRoutePrefix) . $this->getDeleteButtonAttribute($routes, $repository->adminRoutePrefix);
+		return $this->getEditButtonAttribute($routes, $repository->adminRoutePrefix) . $this->getDeleteButtonAttribute($routes, $repository->adminRoutePrefix, $repository->model->count());
 	}   
 }
