@@ -81,6 +81,13 @@
                 </a>
             </li>
 
+             <li class="{{ active_class(Active::checkUriPattern('admin/banner')) }}">
+                <a href="{{ route('admin.banner.index') }}">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <span>Manage Feature Banners</span>
+                </a>
+            </li>
+
             <li class="{{ active_class(Active::checkUriPattern('admin/settings')) }}">
                 <a href="{{ route('admin.settings.index') }}">
                     <i class="fa fa-product-hunt" aria-hidden="true"></i>
