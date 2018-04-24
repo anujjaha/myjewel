@@ -221,9 +221,9 @@ class EloquentCategoryRepository extends DbRepository
     		$categories 	= access()->getPermissionByTier($user->user_level);
     		$categoryIds 	= $categories->pluck('category_id')->unique()->toArray();
 
-    		return  $this->model->whereIn('id', $categoryIds)->get();
+    		return  $this->model->whereIn('id', $categoryIds)->orderBy($orderBy)->get();
     	}
-        return $this->model->all();
+        return $this->model->orderBy($orderBy)->get();
     }
 
 	/**

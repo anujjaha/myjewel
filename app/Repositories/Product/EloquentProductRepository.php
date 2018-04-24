@@ -290,7 +290,7 @@ class EloquentProductRepository extends DbRepository
     		return $this->model->orderBy($orderBy, $sort)->get();	
     	}
 
-    	return $this->model->all();
+    	return $this->model->orderBy($orderBy)->get();
     }
 
 	/**

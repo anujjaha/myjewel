@@ -1,4 +1,4 @@
-<?php
+@<?php
 
 namespace App\Http\Controllers\Api;
 
@@ -41,7 +41,7 @@ class APIProductController extends BaseApiController
     {
         $userInfo   = $this->getApiUserInfo();
         $max        = access()->getSetting('show-limited-products-feature-page-mobile');
-        $products   = $this->repository->getAll('id', 'desc', $max);
+        $products   = $this->repository->getAll('title', 'desc', $max);
 
         if($products && count($products))
         {
