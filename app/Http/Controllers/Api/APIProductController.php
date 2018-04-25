@@ -1,6 +1,4 @@
-@<?php
-
-namespace App\Http\Controllers\Api;
+<?php namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Transformers\CategoryTransformer;
