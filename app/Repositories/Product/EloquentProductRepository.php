@@ -264,7 +264,7 @@ class EloquentProductRepository extends DbRepository
      * @param string $sort
      * @return mixed
      */
-    public function getAll($orderBy = 'id', $sort = 'asc', $max = 5000)
+    public function getAll($orderBy = 'id', $sort = 'asc', $max = 1000)
     {
     	if(isset($orderBy) && $sort)
     	{
