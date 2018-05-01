@@ -212,7 +212,7 @@ class EloquentCategoryRepository extends DbRepository
      * @param string $sort
      * @return mixed
      */
-    public function getAll($orderBy = 'id', $sort = 'asc')
+    public function getAll($orderBy = 'id', $sort = 'asc', $max = 100)
     {
     	$user = access()->user();
 
@@ -221,9 +221,9 @@ class EloquentCategoryRepository extends DbRepository
     		$categories 	= access()->getPermissionByTier($user->user_level);
     		$categoryIds 	= $categories->pluck('category_id')->unique()->toArray();
 
-    		return  $this->model->whereIn('id', $categoryIds)->orderBy($orderBy)->get();
+    		return  $this->model->whereIn('id', $categoryIds)->limit($max)->orderBy($orderBy)->get();
     	}
-        return $this->model->orderBy($orderBy)->get();
+        return $this->model->orderBy($orderBy)->limit($max)->get();
     }
 
 	/**
